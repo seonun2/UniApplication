@@ -1,6 +1,9 @@
 package com.app.my.uniapplication.member;
 
+import android.content.Context;
 import android.util.Log;
+
+import com.app.my.uniapplication.util.Retval;
 
 /**
  * Created by 1027 on 2016-10-01.
@@ -8,7 +11,11 @@ import android.util.Log;
 
 public class MemberServiceImpl implements MemberService {
 
-    MemberDao dao = new MemberDao();
+    MemberDao dao;
+
+    public MemberServiceImpl(Context context) {
+        this.dao = new MemberDao(context);
+    }
 
     @Override
     public MemberDto login(MemberDto paramDto){
@@ -28,7 +35,16 @@ public class MemberServiceImpl implements MemberService {
         }
         return memberDto;
     }
-    public MemberDto join(MemberDto paramDto){
-        return null;
+    public Retval join(MemberDto paramDto){
+        Log.i("###################" , paramDto.getId());
+        Log.i("SERVICE 에서 받은 id : " , paramDto.getId());
+        Log.i("SERVICE 에서 받은 pw : " , paramDto.getPw());
+        Log.i("SERVICE 에서 받은 name : " , paramDto.getName());
+        Log.i("SERVICE 에서 받은 addr : " , paramDto.getAddress());
+        Log.i("SERVICE 에서 받은 email : " , paramDto.getEmail());
+        Log.i("SERVICE 에서 받은 hp : " , paramDto.getHp());
+        Log.i("###################" , paramDto.getPw());
+
+        return dao.insert(paramDto);
     }
 }

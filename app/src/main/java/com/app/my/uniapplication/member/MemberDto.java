@@ -6,16 +6,8 @@ package com.app.my.uniapplication.member;
 
 public class MemberDto {
 
-    private String kor_name, eng_first_name, eng_last_name, id, pw, hp, birthday, address, phone, profileImg, email;
+    private String name, eng_first_name, eng_last_name, id, pw, hp, birthday, address, phone, profileImg, email;
 
-
-    public String getKor_name() {
-        return kor_name;
-    }
-
-    public void setKor_name(String kor_name) {
-        this.kor_name = kor_name;
-    }
 
     public String getEng_first_name() {
         return eng_first_name;
@@ -95,5 +87,13 @@ public class MemberDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

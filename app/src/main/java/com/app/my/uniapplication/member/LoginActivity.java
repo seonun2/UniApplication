@@ -1,5 +1,6 @@
 package com.app.my.uniapplication.member;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,12 +17,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     MemberDto paramDto = new MemberDto();
     MemberDto resultDto = new MemberDto();
 
-    MemberService service = new MemberServiceImpl();
+    MemberService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        service = new MemberServiceImpl(this.getApplicationContext());
 
         bt_join = (Button)findViewById(R.id.bt_join);
         bt_login = (Button)findViewById(R.id.bt_login);
@@ -55,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }else if(resultDto.getId().equals("NO_MATCH_ID")){
                         Toast.makeText(LoginActivity.this, "아이디가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
                     }else{
-                        Toast.makeText(LoginActivity.this, "환영합니다. " + resultDto.getKor_name() + "님.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "환영합니다. " + resultDto.getName() + "님.", Toast.LENGTH_LONG).show();
                     }
                 }else{
                     Toast.makeText(LoginActivity.this, "해당정보는 존재하지 않습니다.", Toast.LENGTH_LONG).show();
@@ -65,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case(R.id.bt_join) :
                 Toast.makeText(LoginActivity.this, "회원가입 하실건가요??", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(LoginActivity.this, JoinActivity.class));
                 break;
         }
 

@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:textSize="30dp"
-            android:text="I   D : " />
+            android:text="ID        : " />
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -23,31 +23,85 @@
         android:layout_width="match_parent"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:textSize="30dp"
-            android:text="P W : " />
+            android:text="PW      : " />
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/et_pw" />
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="NAME : " />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_name" />
 
     </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="HP       : " />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_hp" />
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="EMAIL : " />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_email" />
+
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="ADDR  : " />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_addr" />
+    </LinearLayout>
+
     <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal">
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:id="@+id/bt_login"
-            android:text="LOGIN"
+            android:id="@+id/bt_submit"
+            android:text="SUBMIT"
             android:textSize="20dp"
             />
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:id="@+id/bt_join"
-            android:text="JOIN"
+            android:id="@+id/bt_cancel"
+            android:text="CANCEL"
             android:textSize="20dp"
             android:layout_marginLeft="80dp"
             />
