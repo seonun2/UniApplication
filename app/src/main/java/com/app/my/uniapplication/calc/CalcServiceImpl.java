@@ -1,4 +1,4 @@
-package com.app.my.uniapplication;
+package com.app.my.uniapplication.calc;
 
 /**
  * Created by 1027 on 2016-09-24.

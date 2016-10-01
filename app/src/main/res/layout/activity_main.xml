@@ -7,18 +7,24 @@
     android:weightSum="1">
 
     <TextView
-        android:text="What the Fxxx"
+        android:text="BRING IT ON"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_main"
         android:layout_weight="0.46"
-        android:textSize="60dp"
+        android:textSize="50dp"
         android:textColor="#ff0000"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp" />
     <Button
+        android:id="@+id/bt_calc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CALC"/>
+    <Button
+        android:id="@+id/bt_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"/>
 </LinearLayout>
