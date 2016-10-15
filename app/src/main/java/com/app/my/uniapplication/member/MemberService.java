@@ -1,12 +1,25 @@
 package com.app.my.uniapplication.member;
 
-import com.app.my.uniapplication.util.Retval;
+import java.util.ArrayList;
 
 /**
  * Created by 1027 on 2016-10-01.
  */
 
 public interface MemberService {
-    public MemberDto login(MemberDto memberDto);
-    public Retval join(MemberDto memberDto);
+    // CREATE
+    public void regist(MemberDto memberDto);
+
+    // READ
+    public ArrayList<MemberDto> selectList();
+    public ArrayList<MemberDto> selectListByName(MemberDto memberDto);
+    public MemberDto selectOne(MemberDto memberDto);
+    public int selectAllCount();
+
+    // UPDATE
+    public void update(MemberDto memberDto);
+
+    // DELETE
+    public void unregist(MemberDto memberDto);
+
 }

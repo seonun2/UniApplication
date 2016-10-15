@@ -47,17 +47,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 paramDto.setId(sId);
                 paramDto.setPw(sPw);
-                resultDto = service.login(paramDto);
+                resultDto = service.selectOne(paramDto);
 
                 if(resultDto != null){
-                    if(resultDto.getId().equals("NONE")){
-                        Toast.makeText(LoginActivity.this, "존재하지 않는 아이디 입니다.", Toast.LENGTH_LONG).show();
-                    }else if(resultDto.getId().equals("NO_MATCH_PW")){
+                    if(!resultDto.getPw().equals(sPw)){
                         Toast.makeText(LoginActivity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
-                    }else if(resultDto.getId().equals("NO_MATCH_ID")){
+                    }else if(!resultDto.getId().equals(sId)){
                         Toast.makeText(LoginActivity.this, "아이디가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
                     }else{
-                        Toast.makeText(LoginActivity.this, "환영합니다. " + resultDto.getName() + "님.", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(LoginActivity.this, ListActivity.class));
                     }
                 }else{
                     Toast.makeText(LoginActivity.this, "해당정보는 존재하지 않습니다.", Toast.LENGTH_LONG).show();

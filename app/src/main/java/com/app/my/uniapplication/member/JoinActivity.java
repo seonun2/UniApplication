@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.app.my.uniapplication.MainActivity;
 import com.app.my.uniapplication.R;
-import com.app.my.uniapplication.util.Retval;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener{
     EditText et_id, et_pw, et_name, et_hp, et_addr, et_email;
@@ -53,17 +52,8 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()){
             case (R.id.bt_submit) :
-                Retval val = service.join(paramDto);
-                if("SUCCESS".equals(val.getMessage())){
-
-                    Toast.makeText(JoinActivity.this, "회원가입을 성공하셨습니다.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(JoinActivity.this, LoginActivity.class));
-
-                }else{
-                    Toast.makeText(JoinActivity.this, "회원가입을 실패하셨습니다.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(JoinActivity.this, LoginActivity.class));
-                }
-
+                service.regist(paramDto);
+                startActivity(new Intent(JoinActivity.this, LoginActivity.class));
                 break;
 
             case (R.id.bt_cancel) :
