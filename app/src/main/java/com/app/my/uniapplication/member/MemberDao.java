@@ -93,7 +93,7 @@ public class MemberDao extends SQLiteOpenHelper{
         Log.i("DAO 전체 조회 " , "selectList()진입");
 
         String sql = "select "+
-                String.format("(%s,%s,%s,%s,%s,%s,%s,%s,%s)", ID, PW, NAME, EMAIL, ADDRESS, PHONE, PHOTO, HP, BIRTHDAY)
+                String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", ID, PW, NAME, EMAIL, ADDRESS, PHONE, PHOTO, HP, BIRTHDAY)
                 +" from member";
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -131,7 +131,7 @@ public class MemberDao extends SQLiteOpenHelper{
         Log.i("DAO NAME 조회 " , "selectListByName()진입");
 
         String sql = "select "+
-                String.format("(%s,%s,%s,%s,%s,%s,%s,%s,%s)", ID, PW, NAME, EMAIL, ADDRESS, PHONE, PHOTO, HP, BIRTHDAY)
+                String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", ID, PW, NAME, EMAIL, ADDRESS, PHONE, PHOTO, HP, BIRTHDAY)
                 +String.format(" from %s where %s = '%s';", TABLE_NAME, NAME, paramDto.getName());
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -165,7 +165,7 @@ public class MemberDao extends SQLiteOpenHelper{
 
     public MemberDto selectOne(MemberDto paramDto){
         Log.i("###################" , "###################");
-        Log.i("DAO ID 조회 " , "selectListByName()진입");
+        Log.i("DAO ID 조회 " , "selectOne()진입");
         MemberDto tmp = null;
 
         String sql = "select "+
@@ -190,6 +190,9 @@ public class MemberDao extends SQLiteOpenHelper{
             tmp.setProfileImg(cursor.getString(6));
             tmp.setHp(cursor.getString(7));
             tmp.setBirthday(cursor.getString(8));
+        }else{
+            Log.i("###################" , "###################");
+            Log.i("DAO LIST BY ID 조회 결과 " , "ID 존재 안 함!!");
         }
 
         return tmp;
@@ -197,7 +200,7 @@ public class MemberDao extends SQLiteOpenHelper{
 
     public int selectAllCount(){
         Log.i("###################" , "###################");
-        Log.i("DAO 전체 조회 " , "selectList()진입");
+        Log.i("DAO 전체 조회 " , "selectAllCount()진입");
 
         int cnt = 0;
 
@@ -221,12 +224,12 @@ public class MemberDao extends SQLiteOpenHelper{
         Log.i("###################" , "###################");
         Log.i("DAO update " , "update()진입");
 
-        String sql = String.format("update %s set", TABLE_NAME)
+        String sql = String.format("update %s set ", TABLE_NAME)
                 + String.format("%s = '%s',", PW, paramDto.getPw())
                 + String.format("%s = '%s',", EMAIL, paramDto.getEmail())
                 + String.format("%s = '%s',", ADDRESS, paramDto.getAddress())
                 + String.format("%s = '%s',", PHONE, paramDto.getPhone())
-                + String.format("%s = '%s',", PHOTO, paramDto.getProfileImg())
+                + String.format("%s = '%s'", PHOTO, paramDto.getProfileImg())
                 + String.format("where %s = '%s'", ID, paramDto.getId());
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -236,12 +239,12 @@ public class MemberDao extends SQLiteOpenHelper{
     }
 
     //DML ( DELETE )
-    public void delete(MemberDto paramDto){
+    public void delete(String id){
         Log.i("###################" , "###################");
         Log.i("DAO delete " , "delete()진입");
 
-        String sql = String.format("delete from ", TABLE_NAME)
-                + String.format("where %s = '%s'", ID, paramDto.getId());
+        String sql = String.format("delete from %s ", TABLE_NAME)
+                + String.format("where %s = '%s'", ID, id);
 
         SQLiteDatabase db = this.getWritableDatabase();
 

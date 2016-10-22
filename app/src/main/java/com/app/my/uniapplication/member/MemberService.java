@@ -20,6 +20,6 @@ public interface MemberService {
     public void update(MemberDto memberDto);
 
     // DELETE
-    public void unregist(MemberDto memberDto);
+    public void unregist(String id);
 
 }
